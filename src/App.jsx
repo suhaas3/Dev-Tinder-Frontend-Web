@@ -1,10 +1,9 @@
 import './style.css';
-import './index.css'
-import Navbar from './Navbar';
+import './index.css';
+import Body from './Components/Body';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './Login';
-import Profile from './Profile';
-import Body from './Body';
+import Login from './Components/Login';
+import Profile from './Components/Profile';
 
 
 function App() {

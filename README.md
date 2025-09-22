@@ -1,12 +1,29 @@
-# React + Vite
+# DevTinder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Create a vite + React application
+- Remove unecessary code and create a Hello world app
+- Install Tailwind CSS
+- Install Daisy UI
+- Add Navbar component to App.jsx
+- Create a Navbar.jsx separate Component file
+- Install React Router Dom
+- Create BrowserRouter > Routes > Route =/ Body > RouteChildren
+- Create an Outlet in your Body Component 
+- Create a footer
+- Create a Login Page
+- Install axios
+- CORS - install cors in backend => add middleware to with configurations: origin, credentials: true
+- whenever you're making API call so pass axios => { withCredentials: true}
+- Install react-redux + @reduxjs/toolkit - https://redux-toolkit.js.org/tutuorials/quick-start
+- configureStore => Provider => createSlice => add reducer to store
+- Add redux devtools in chrome
+- Login and see if your data is coming properly in the store
+- Navbar should update as soon as user logs in 
+- Refactor our code to add constants file + create a components folder
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Body 
+    Navbar 
+    Route=/  => Feed
+    Route=/login  => Login
+    Route=/connections  => Connections
+    Route=/profile  => Profile
