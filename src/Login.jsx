@@ -1,6 +1,22 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 
 const Login = () => {
+  const [emailId, setEmailId]=useState("saisuhaas@gmail.com");
+  const [password, setPassword]=useState("Saisuhaas@123");
+
+  const handleLogin = async () => {
+    try {
+    const res = await axios.post("http://localhost:3333/login", {
+      emailId,
+      password
+    }, {
+      withCredentials: true
+    })
+  } catch (err) {
+    console.error(err.message);
+  }
+  }
   return (
     <>
       <div className='flex justify-center py-6'>
@@ -8,23 +24,23 @@ const Login = () => {
           <div className="card-body">
             <h2 className="card-title justify-center">Login</h2>
             <div className='flex flex-col items-center justify-center'>
-              <div class="form-control w-full max-w-[250px] m-4">
-                <label class="label">
-                  <span class="label-text">Email Id</span>
+              <div className="form-control w-full max-w-[250px] m-4">
+                <label className="label">
+                  <span className="label-text">Email Id:{emailId}</span>
                 </label>
-                <input type="text" class="input input-bordered w-full max-w-xs" />
+                <input type="text" value={emailId} onChange={(e) =>setEmailId(e.target.value)} className="input input-bordered w-full max-w-xs" />
               </div>
 
-              <div class="form-control w-full max-w-[250px]">
-                <label class="label">
-                  <span class="label-text">Password</span>
+              <div className="form-control w-full max-w-[250px]">
+                <label className="label">
+                  <span className="label-text">Password:{password}</span>
                 </label>
-                <input type="password" class="input input-bordered w-full max-w-xs" />
+                <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)} className="input input-bordered w-full max-w-xs" />
               </div>
 
             </div>
             <div className="card-actions justify-center">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary" onClick={handleLogin}>Login</button>
             </div>
           </div>
         </div>
