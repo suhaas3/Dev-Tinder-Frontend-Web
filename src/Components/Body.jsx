@@ -6,6 +6,7 @@ import { BASE_URL } from '../uitils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../uitils/userSlice';
 import axios from 'axios';
+import Feed from './Feed';
 
 
 const Body = () => {
