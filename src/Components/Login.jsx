@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [emailId, setEmailId]=useState("saisuhaas@gmail.com");
   const [password, setPassword]=useState("Saisuhaas@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Login = () => {
     navigate("/")
 
   } catch (err) {
-    console.error("error: ",err.message);
+    setError(err?.response?.deata || "something went wrong!");
   }
   }
   return (
@@ -49,6 +50,7 @@ const Login = () => {
               </div>
 
             </div>
+            <p className='flex justify-center text-red-500'>{error}</p>
             <div className="card-actions justify-center">
               <button className="btn btn-primary" onClick={handleLogin}>Login</button>
             </div>

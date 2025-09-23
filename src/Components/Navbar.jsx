@@ -22,7 +22,8 @@ const Navbar = () => {
       navigate('/login');
 
     } catch (err) {
-      console.error(err);
+      //ERROR logic maybe redirect to error page
+      navigate('/login');
     }
   }
 
