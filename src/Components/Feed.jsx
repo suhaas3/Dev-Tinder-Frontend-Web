@@ -29,7 +29,7 @@ const Feed = () => {
     getFeed();
   }, [])
 
-  return (
+  return feed && (
     <>
 
   <UserCard user={feed[0]}/>
