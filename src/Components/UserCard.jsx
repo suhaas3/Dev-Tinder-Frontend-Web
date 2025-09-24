@@ -10,7 +10,7 @@ const UserCard = ({ user }) => {
 
         {/* You can copy more cards here if you want multiple */}
         <div className="card bg-base-300 w-96 shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <figure>
+          <figure className='rounded-3xl'>
             <img
               className="w-60 py-3 rounded-xl"
               src={photoUrl}
