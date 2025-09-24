@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import {BASE_URL} from "../uitils/constants";
 import { useDispatch, useSelector } from 'react-redux';
 import { addFeed } from '../uitils/feedSlice';
+import UserCard from './UserCard';
 
 
 const Feed = () => {
@@ -31,7 +32,7 @@ const Feed = () => {
   return (
     <>
 
-    <h1>Feed feed</h1>
+  <UserCard user={feed[0]}/>
 
     </>
   )
