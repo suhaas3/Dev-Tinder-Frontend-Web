@@ -3,7 +3,7 @@ import UserCard from './UserCard';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { BASE_URL } from '../uitils/constants';
-import {addUser} from "../uitils/userSlice";
+import { addUser } from "../uitils/userSlice";
 
 const EditProfile = ({ user }) => {
 
@@ -17,6 +17,7 @@ const EditProfile = ({ user }) => {
   const [skills, setSkills] = useState(user?.skills || []);
   const [newSkill, setNewSkill] = useState(""); // for input skill
   const [error, setError] = useState("");
+  const [saveMessage, setSaveMessage] = useState(false);
   const dispatch = useDispatch();
 
 
@@ -37,6 +38,9 @@ const EditProfile = ({ user }) => {
 
   const saveProfile = async () => {
 
+    //Clear Errors
+    setError("");
+
     try {
 
       const res = await axios.patch(BASE_URL + "/profile/edit", {
@@ -45,11 +49,16 @@ const EditProfile = ({ user }) => {
         withCredentials: true
       })
 
-      console.log(res?.data?.data,"dataaaaaaaaaaaaaaaaaaaaaa")
       dispatch(addUser(res?.data?.data))
 
+      setSaveMessage(true);
+      setTimeout(() => {
+        setSaveMessage(false);
+      }, 3000)
+
+
     } catch (err) {
-      setError(err?.data?.data);
+      setError(err?.response?.data);
     }
   }
 
@@ -167,6 +176,17 @@ const EditProfile = ({ user }) => {
               <div className="card-actions justify-center">
                 <button className="btn btn-primary" onClick={saveProfile}>Save Profile</button>
               </div>
+
+              {/* {"toast message code"} */}
+              {saveMessage && (
+                <div className="toast toast-top toast-center fixed z-50">
+                  <div className="alert alert-success">
+                    <span>Profile Saved successfully.</span>
+                  </div>
+                </div>
+              )}
+
+
             </div>
           </div>
         </div>
