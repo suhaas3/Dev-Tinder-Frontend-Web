@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import UserCard from './UserCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { BASE_URL } from '../uitils/constants';
+import {addUser} from "../uitils/userSlice";
 
 const EditProfile = ({ user }) => {
 
@@ -14,6 +17,7 @@ const EditProfile = ({ user }) => {
   const [skills, setSkills] = useState(user?.skills || []);
   const [newSkill, setNewSkill] = useState(""); // for input skill
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
 
   // Add new skill
@@ -30,6 +34,24 @@ const EditProfile = ({ user }) => {
   const handleRemoveSkill = (skillToRemove) => {
     setSkills(skills.filter((skill) => skill !== skillToRemove));
   };
+
+  const saveProfile = async () => {
+
+    try {
+
+      const res = await axios.patch(BASE_URL + "/profile/edit", {
+        firstName, lastName, age, gender, photoUrl, about, skills
+      }, {
+        withCredentials: true
+      })
+
+      console.log(res?.data?.data,"dataaaaaaaaaaaaaaaaaaaaaa")
+      dispatch(addUser(res?.data?.data))
+
+    } catch (err) {
+      setError(err?.data?.data);
+    }
+  }
 
   return (
     <>
@@ -72,7 +94,7 @@ const EditProfile = ({ user }) => {
                     className="select select-bordered w-full max-w-xs"
                   >
                     <option value="">Select age</option>
-                    {Array.from({ length: 83 }, (_, i) => i + 10).map((num) => (
+                    {Array.from({ length: 83 }, (_, i) => i + 18).map((num) => (
                       <option key={num} value={num}>
                         {num}
                       </option>
@@ -140,16 +162,16 @@ const EditProfile = ({ user }) => {
                 </div>
 
 
-            </div>
-            <p className='flex justify-center text-red-500'>{error}</p>
-            <div className="card-actions justify-center">
-              <button className="btn btn-primary">Save Profile</button>
+              </div>
+              <p className='flex justify-center text-red-500'>{error}</p>
+              <div className="card-actions justify-center">
+                <button className="btn btn-primary" onClick={saveProfile}>Save Profile</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <UserCard user={{ firstName, lastName, age, gender, photoUrl, about, skills }} />
+        <UserCard user={{ firstName, lastName, age, gender, photoUrl, about, skills }} />
 
       </div>
 
