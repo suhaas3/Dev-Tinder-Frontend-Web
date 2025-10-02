@@ -6,14 +6,12 @@ import { BASE_URL } from '../uitils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../uitils/userSlice';
 import axios from 'axios';
-import Feed from './Feed';
 
 
 const Body = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userData = useSelector(store => store.user);
 
   const fetchUser = async () => {
 
@@ -41,9 +39,18 @@ const Body = () => {
 
   return (
     <>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      <div className="flex flex-col min-h-screen">
+        {/* Navbar at top */}
+        <Navbar />
+
+        {/* Page content grows to push footer down */}
+        <main className="flex-grow">
+          <Outlet />
+        </main>
+
+        {/* Footer sticks at bottom */}
+        <Footer />
+      </div>
     </>
   )
 }
