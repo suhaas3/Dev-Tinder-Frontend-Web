@@ -29,6 +29,9 @@
 - Show Toast message on save of profile
 - New Page - See all my connections
 - New Page - See all my Connection Requests
+- Send/Ignore the user card from the feed
+- Signup New User
+- E2E testing
 
 
 Body 
