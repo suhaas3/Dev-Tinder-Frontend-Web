@@ -29,6 +29,10 @@ const Feed = () => {
     getFeed();
   }, [])
 
+  if (!feed) return;
+
+  if (feed.length <= 0) return <h1 className='text-center my-10'>No New Users Founds!</h1>
+
   return feed && (
     <>
 
