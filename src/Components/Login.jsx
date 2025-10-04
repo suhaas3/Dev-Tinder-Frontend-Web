@@ -56,7 +56,7 @@ const Login = () => {
 
               {isOpenLogin && <><div className="form-control w-full max-w-[250px]">
                 <label className="label">
-                  <span className="label-text">FirstName :{firstName}</span>
+                  <span className="label-text">FirstName</span>
                 </label>
                 <input type="password" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="input input-bordered w-full max-w-xs" />
               </div>
@@ -64,7 +64,7 @@ const Login = () => {
 
                 <div className="form-control w-full max-w-[250px]">
                   <label className="label">
-                    <span className="label-text">LastName :{lastName}</span>
+                    <span className="label-text">LastName</span>
                   </label>
                   <input type="password" value={lastName} onChange={(e) => setLastName(e.target.value)} className="input input-bordered w-full max-w-xs" />
                 </div>
@@ -73,14 +73,14 @@ const Login = () => {
 
               <div className="form-control w-full max-w-[250px] m-4">
                 <label className="label">
-                  <span className="label-text">Email Id:{emailId}</span>
+                  <span className="label-text">Email Id</span>
                 </label>
                 <input type="text" value={emailId} onChange={(e) => setEmailId(e.target.value)} className="input input-bordered w-full max-w-xs" />
               </div>
 
               <div className="form-control w-full max-w-[250px]">
                 <label className="label">
-                  <span className="label-text">Password:{password}</span>
+                  <span className="label-text">Password</span>
                 </label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input input-bordered w-full max-w-xs" />
               </div>
