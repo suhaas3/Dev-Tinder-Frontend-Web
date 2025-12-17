@@ -19,7 +19,7 @@ const Navbar = () => {
       })
 
       dispatch(removeUser());
-      navigate('/login');
+      navigate('/login');     
 
     } catch (err) {
       //ERROR logic maybe redirect to error page

@@ -46,6 +46,7 @@ const Login = () => {
       // dispatch(addUser(res.data));
     } catch (err) {
       //Handling Error Case
+      setError(err?.response?.data || "something went wrong!");
     }
   }
   return (
@@ -112,7 +113,7 @@ const Login = () => {
               </div>
 
             </div>
-            <p className='flex justify-center text-red-500'>{error}</p>
+            <p className='flex justify-center text-red-500'>{error?.message}</p>
             <div className="card-actions justify-center">
               <button className="btn btn-primary" onClick={isOpenLogin ? handleSignUp : handleLogin}>{isOpenLogin ? "SignUp" : "Login"}</button>
             </div>

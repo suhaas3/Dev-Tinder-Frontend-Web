@@ -20,7 +20,7 @@ const Body = () => {
         withCredentials: true
       })
 
-      dispatch(addUser(res.data));
+      dispatch(addUser(res?.data));
 
       navigate("/");
 
