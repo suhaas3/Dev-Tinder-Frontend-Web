@@ -14,11 +14,14 @@ const Body = () => {
   const navigate = useNavigate();
 
   const fetchUser = async () => {
+    console.log("fetching user")
 
     try {
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true
       })
+
+      console.log(res,"Resposne for profile view ")
 
       dispatch(addUser(res?.data));
 
